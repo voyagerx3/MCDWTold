@@ -2,7 +2,7 @@ import os
 
 def main():
     
-    print("Current Working Directory 1:" , os.getcwd())
+    #print("Current Working Directory 1:" , os.getcwd())
     
     
     try:
@@ -12,7 +12,7 @@ def main():
     except OSError:
         print("Can't change the Current Working Directory")        
 
-    print("Current Working Directory 2" , os.getcwd())
+    #print("Current Working Directory 2" , os.getcwd())
     
 def img():
     print("Image directory", os.getcwd("./issue5/img"))
