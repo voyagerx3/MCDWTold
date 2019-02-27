@@ -71,7 +71,7 @@ class DWT:
         if __debug__:
             print("image: max={} min={}".format(np.amax(image), np.amin(image)))
         for c in range(3):
-            LL[:,:,c], (LH[:,:,c], HL[:,:,c], HH[:,:,c]) = pywt.dwt2(image[:,:,c], 'db5', mode='per')
+            LL[:,:,c], (LH[:,:,c], HL[:,:,c], HH[:,:,c]) = pywt.dwt2(image[:,:,c], 'rbio3.5', mode='per')
         if __debug__:
             print("DWT::forward: LL: max={} min={}".format(np.amax(LL), np.amin(LL)))
             print("DWT::forward: LH: max={} min={}".format(np.amax(LH), np.amin(LH)))
@@ -101,7 +101,8 @@ class DWT:
         HH = decomposition[1][2]
         image = np.ndarray((LL.shape[0]*2, LL.shape[1]*2, 3), np.float64)
         for c in range(3):
-            image[:,:,c] = pywt.idwt2((LL[:,:,c], (LH[:,:,c], HL[:,:,c], HH[:,:,c])), 'db5', mode='per')
+            image[:, :, c] = pywt.idwt2(
+                (LL[:, :, c], (LH[:, :, c], HL[:, :, c], HH[:, :, c])), 'rbio3.5', mode='per')
         return image
 
 if __name__ == "__main__":
