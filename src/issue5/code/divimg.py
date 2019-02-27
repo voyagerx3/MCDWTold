@@ -7,7 +7,7 @@ plt.rcParams.update({'figure.max_open_warning': 0})
 
 
 def divimg(im,factor):
-    im2 = cv2.imread(im,cv2.COLOR_BGR2GRAY)
+    im2 = cv2.imread(im,-1)
     #im2 = cv2.imread(im)
     #im2== cv2.imread(im,-1)
     plt.title(im)
